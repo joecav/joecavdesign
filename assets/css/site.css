@@ -1081,3 +1081,8 @@ body { letter-spacing: 0; }
 /* Work cascade: show each cover at its natural shape — no cropping */
 .fall__item .fall__media, .fall__item:nth-child(n) .fall__media { aspect-ratio: auto; }
 .fall__img { height: auto; display: block; }
+
+/* Work cascade: role chip on the image, top-left — same chip as Selected Work */
+.fall__media { position: relative; }
+.fall__pill { position: absolute; z-index: 2; top: clamp(14px, 1.6vw, 24px); left: clamp(14px, 1.6vw, 24px); }
+.fall__pill { background: rgba(0, 0, 0, .38); border-color: rgba(255, 255, 255, .32); }
