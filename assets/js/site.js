@@ -257,6 +257,7 @@
   // Intro: lift the curtain, then reveal headline lines.
   const intro = gsap.timeline();
   intro.fromTo(curtain, { '--b': '12px', '--o': '30%' }, { '--b': '0px', '--o': '0%', duration: .8, ease: 'power2.out', delay: .05, onComplete: hideCurtain })
+    .from('.proj__hero .reel__img', { scale: 1.06, opacity: 0, duration: 1.4, ease: E }, '-=.6')
     .from('[data-reel-top] .reel__img', { scale: matchMedia('(min-width: 761px)').matches ? 1.12 : 1, opacity: 0, duration: 1.6, ease: E }, '-=.6')
     .from('.pagehead__title .line__in, .proj__title .line__in', { yPercent: 115, duration: 1.2, stagger: .08, ease: E }, '-=1.5')
     .from('.proj__head .meta, .proj__head > p, .pagehead > p, .pagehead .view-toggle, .contact > p, .contact__email', { opacity: 0, y: 16, duration: .9, stagger: .06, ease: E }, '-=.9');
@@ -309,6 +310,17 @@
   // Contact rows rise in one after another.
   if ($('.contact__row')) gsap.from('.contact__row', { y: 28, opacity: 0, duration: 1, stagger: .08, ease: E, delay: .5 });
   if ($('.contact__intro')) gsap.from('.contact__intro', { y: 16, opacity: 0, duration: 1, ease: E, delay: .45 });
+
+  // Work cascade: each piece drops into place as it arrives, then drifts at its own pace.
+  $$('[data-fall]').forEach((it, i) => {
+    const m = $('.fall__media', it), cap = $('.fall__cap', it), tilt = i % 2 ? 2.5 : -2.5;
+    gsap.from(m, { y: -140, rotation: tilt, opacity: 0, duration: 1.5, ease: 'expo.out', scrollTrigger: { trigger: it, start: 'top 95%' } });
+    gsap.from(cap, { y: 16, opacity: 0, duration: 1, delay: .25, ease: E, scrollTrigger: { trigger: it, start: 'top 95%' } });
+    if (matchMedia('(min-width: 761px)').matches) {
+      const drift = [0, 70, 30, 110][i % 4];
+      if (drift) gsap.fromTo(it, { y: drift }, { y: -drift, ease: 'none', scrollTrigger: { trigger: it, start: 'top bottom', end: 'bottom top', scrub: true } });
+    }
+  });
 
   // Generic reveals.
   $$('[data-reveal]').forEach((el) => gsap.from(el, { y: 36, opacity: 0, duration: 1.1, ease: E, scrollTrigger: { trigger: el, start: 'top 88%' } }));

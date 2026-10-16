@@ -217,22 +217,22 @@ function homePage() {
   write('index.html', page({ pre, title: 'Joe Cavadini — Art Director + Designer', desc: 'Brooklyn-based art director and designer helping brands tell good stories, built to perform.', active: 'home', body, cls: 'p-home' }));
 }
 
+// One short role per project for cards and the index: the homepage card role if there is one, else the first line of Role.
+const roleOf = (p) => home.featured.find((f) => f.slug === p.slug)?.role || ((p.meta || []).find(([k]) => k === 'Role')?.[1] || '').split('\n')[0];
+
 // ---------- work index ----------
 function workPage() {
   const pre = '../';
   const cards = projects.map((p, i) => `
-    <li class="card" data-reveal>
-      <a href="${pre}${p.slug}/" class="card__link" data-cursor="View">
-        <div class="card__media">${img(p.cover, p.coverAlt, { sizes: '(min-width: 900px) 46vw, 100vw', cls: 'card__img' })}</div>
-        <div class="card__row">
-          <h2 class="card__title">${esc(noDot(p.short || p.title))}</h2>
-        </div>
-        <p class="card__svc muted">${esc(p.services)}</p>
+    <li class="fall__item" data-fall>
+      <a href="${pre}${p.slug}/" class="fall__link" data-cursor="View">
+        <div class="fall__media">${img(p.cover, p.coverAlt, { sizes: '(min-width: 900px) 50vw, 90vw', cls: 'fall__img' })}</div>
+        <p class="fall__cap"><span class="fall__title">${esc(noDot(p.short || p.title))}</span><span class="fall__role mono muted">${esc(roleOf(p))}</span></p>
       </a>
     </li>`).join('');
   const rows = projects.map((p, i) => `
     <li><a class="idx__row" href="${pre}${p.slug}/" data-preview="${url(p.cover, 750)}">
-      <span class="idx__title">${esc(noDot(p.short || p.title))}</span><span class="idx__client muted">${esc(p.client)}</span><span class="idx__svc muted">${esc(p.services)}</span>
+      <span class="idx__title">${esc(noDot(p.short || p.title))}</span><span class="idx__client muted">${esc(p.client)}</span><span class="idx__svc muted">${esc(roleOf(p))}</span>
     </a></li>`).join('');
   const body = `
 <section class="pagehead wrap">
@@ -245,7 +245,7 @@ function workPage() {
   </div>
 </section>
 <section class="wrap work" data-work-view="grid">
-  <ul class="grid" data-grid>${cards}</ul>
+  <ul class="grid fall" data-grid>${cards}</ul>
   <ul class="idx" data-idx>${rows}</ul>
   <div class="focus__preview" data-focus-preview aria-hidden="true"><img alt=""></div>
 </section>`;
@@ -345,20 +345,25 @@ function projectPage(p, i) {
   const next = projects[(i + 1) % projects.length];
   const prev = i > 0 ? projects[i - 1] : null;
   const metaRows = [['Client', p.client], ...(p.meta || [])]; // same fields on every project: Client, Role (+ Contributors where credited)
-  const meta = metaRows.map(([k, v]) => `<div class="meta__cell"><p class="label">${esc(k)}</p><p>${br(v)}</p></div>`).join('');
-  const sections = (p.sections || []).map(([k, v]) => `<section class="txt wrap txt--${p.col || 'narrow'}" data-reveal><h2 class="label txt__k">${esc(k)}</h2><p class="txt__v">${esc(v)}</p></section>`).join('');
+  // His order: Role, then Client, then credits.
+  const factRows = [...metaRows.filter(([k]) => k === 'Role'), ...metaRows.filter(([k]) => k !== 'Role')];
+  const facts = factRows.map(([k, v]) => `<div class="proj__fact" data-reveal><dt class="proj__k">${esc(k)}</dt><dd>${br(v)}</dd></div>`).join('');
+  const sections = (p.sections || []).map(([k, v]) => `<section class="proj__sec" data-reveal><h2 class="proj__k">${esc(k)}</h2><p>${esc(v)}</p></section>`).join('');
   const stats = p.stats ? `<section class="stats wrap" aria-label="Results"><h2 class="label">The result</h2><ul class="stats__list">${p.stats.map(([n, l]) => `<li data-reveal><span class="stats__n" data-count="${esc(n)}">${esc(n)}</span><span class="muted">${esc(l)}</span></li>`).join('')}</ul></section>` : '';
   const videos = p.videos ? `<section class="videos wrap${p.videos.length > 1 ? ' videos--multi' : ''}" aria-label="Films">${p.videos.map((v, j) => video(v, j === 0 ? (p.hero || p.cover) : (p.gallery?.[j]?.[0] || p.cover), v.title)).join('')}</section>` : '';
   const soon = p.soon ? `<section class="txt wrap"><h2 class="label txt__k">Status</h2><p class="txt__v">The full case study is being written up. In the meantime, <a class="ulink" href="${pre}contact/">get in touch</a> for a walkthrough.</p></section>` : '';
   const heroImg = p.hero || p.cover;
   const body = `
 <article class="proj">
-  <header class="proj__head wrap">
-    <h1 class="proj__title">${esc(noDot(p.title)).split(' ').map((w) => `<span class="line"><span class="line__in">${w}</span></span>`).join(' ')}</h1>
-    <div class="meta">${meta}</div>
+  <figure class="proj__hero"><div class="reel__frame">${img(heroImg, p.coverAlt, { cls: 'reel__img', eager: true })}</div></figure>
+  <header class="proj__intro wrap">
+    <div class="proj__side">
+      <h1 class="proj__title">${esc(noDot(p.title)).split(' ').map((w) => `<span class="line"><span class="line__in">${w}</span></span>`).join(' ')}</h1>
+      <dl class="proj__facts">${facts}</dl>
+    </div>
+    <div class="proj__body">${sections}</div>
   </header>
-  <figure class="proj__hero" data-reel><div class="reel__frame" data-reel-frame>${img(heroImg, p.coverAlt, { cls: 'reel__img', eager: true })}</div></figure>
-  ${p.layout && !p.leadAfterStats ? layoutParts(p).lead : ''}${sections}${p.layout ? '' : carouselHTML(p)}${stats}${p.layout && p.leadAfterStats ? layoutParts(p).lead : ''}${soon}${p.layout ? layoutParts(p).rest : videos + galleryHTML(p)}
+  ${p.layout && !p.leadAfterStats ? layoutParts(p).lead : ''}${p.layout ? '' : carouselHTML(p)}${stats}${p.layout && p.leadAfterStats ? layoutParts(p).lead : ''}${soon}${p.layout ? layoutParts(p).rest : videos + galleryHTML(p)}
   <nav class="pn wrap" aria-label="More projects">
     ${prev ? `<a class="pn__link pn__link--prev" href="${pre}${prev.slug}/"><span class="mono muted pn__k">Previous project</span><span class="pn__title">${esc(noDot(prev.short || prev.title))}</span></a>` : '<span></span>'}
     <a class="pn__link pn__link--next" href="${pre}${next.slug}/"><span class="mono muted pn__k">Next project</span><span class="pn__title">${esc(noDot(next.short || next.title))}</span></a>
