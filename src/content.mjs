@@ -150,6 +150,7 @@ export const projects = [
       ['8f47b1c6-5cd8-4711-b386-09b0147f2ffb/Arccos+Bandon+-+Marsh-336+%282%29.jpg', 'Four golfers at sunset'],
     ],
     col: 'narrow',
+    leadAfterStats: true, // Insight first, then the packaging slideshow
     // Image layout mirrors the Squarespace page
     layout: [
       ['slideshow', ['1724864100877-FPGBLH8ESM1MVS6C4CZY/LinkPro-ProductImage-1.png', '1724864100841-TFQI0MX6EAT1OIA5ORKE/LinkPro-ProductImage-2.png', '1724864100849-MWH1VEL0FIUNNMZYHDWY/LinkPro-ProductImage-3.png', '1724864100856-JISNQBKTIJPAMGV3AGSA/LinkPro-ProductImage-4.png', '1724864100864-SNXBM2NTSF619FLPIWQV/LinkPro-ProductImage-5.png']],
