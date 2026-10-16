@@ -988,3 +988,6 @@ body { letter-spacing: 0; }
   .process__step:last-child { border-bottom: 0; }
   .js .process__step, .js .process__step.is-active { opacity: 1; }
 }
+
+/* Selected Work: role chip pinned to the card's top-left corner */
+.stack__pill { position: absolute; z-index: 2; top: clamp(20px, 4vh, 40px); left: clamp(20px, 3vw, 40px); }

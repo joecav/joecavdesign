@@ -140,8 +140,8 @@ function homePage() {
       <a class="stack__link" href="${pre}${f.slug}/" data-cursor="View">
         <div class="stack__media">${img(f.img, f.title, { cls: 'stack__img', eager: i === 0 })}</div>
         <div class="stack__shade" aria-hidden="true"></div>
+        <span class="pill stack__pill">${esc(f.role)}</span>
         <div class="stack__copy">
-          <span class="pill">${esc(f.role)}</span>
           <h3 class="stack__title">${esc(noDot(f.title))}</h3>
           <p class="stack__meta"><span class="stack__blurb">${esc(f.blurb)}</span></p>
         </div>
