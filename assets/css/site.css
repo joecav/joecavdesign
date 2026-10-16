@@ -1094,3 +1094,35 @@ body { letter-spacing: 0; }
 
 /* "The result" label matches ROLE / CLIENT / INSIGHT */
 .stats > .label { font-family: var(--f-display); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--fg); }
+
+/* ==========================================================================
+   Type system — one eyebrow, one body, one lead, used everywhere
+   ========================================================================== */
+:root {
+  --eyebrow-size: .75rem;
+  --body-size: clamp(1rem, .94rem + .25vw, 1.125rem);   /* ~16–18px */
+  --lead-size: clamp(1.25rem, 1rem + .8vw, 1.75rem);     /* ~20–28px */
+}
+/* Eyebrows: Poppins bold, all caps, wide tracking */
+.label, .proj__k, .stats > .label, .ftr__k, .pn__k, .about .facts dt, .hero__eyebrow {
+  font-family: var(--f-display); font-size: var(--eyebrow-size); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .15em; line-height: 1.5; color: var(--fg);
+}
+.ftr__k { color: rgba(241, 242, 244, .6); }
+.pn__k { color: var(--muted); }
+/* Brooklyn-Based keeps its larger lockup size but shares the eyebrow style */
+.hero__eyebrow { font-size: clamp(.95rem, .8rem + .45vw, 1.25rem); color: var(--muted); }
+/* Body copy: every paragraph and supporting line */
+.process__text, .contact__intro, .about__copy > p:not(.about__lead), .duo__side .muted, .stats__list .muted,
+.about .facts dd, .proj__fact dd, .txt__v {
+  font-size: var(--body-size); line-height: 1.6; font-weight: 300; letter-spacing: 0;
+}
+.process__text, .contact__intro, .about__copy > p:not(.about__lead), .duo__side .muted, .stats__list .muted { color: var(--muted); }
+.about .facts dd, .proj__fact dd { color: var(--fg); font-weight: 400; }
+/* Lead: the About intro and every project story paragraph */
+.about__lead, .proj__sec p, .proj__sec:first-child p {
+  font-size: var(--lead-size); line-height: 1.38; font-weight: 400; letter-spacing: -0.01em; color: var(--fg);
+}
+.about .about__copy .about__lead { font-size: var(--lead-size); line-height: 1.38; font-weight: 400; letter-spacing: -0.01em; }
+.idx__client, .idx__svc { font-size: var(--body-size); font-weight: 300; }
+.ftr__v { font-size: var(--body-size); }

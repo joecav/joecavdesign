@@ -146,7 +146,6 @@ function homePage() {
         <span class="pill stack__pill">${esc(f.role)}</span>
         <div class="stack__copy">
           <h3 class="stack__title">${esc(noDot(f.title))}</h3>
-          <p class="stack__meta"><span class="stack__blurb">${esc(f.blurb)}</span></p>
         </div>
       </a>
     </article>`).join('');
