@@ -226,7 +226,7 @@ function workPage() {
   const cards = projects.map((p, i) => `
     <li class="fall__item" data-fall>
       <a href="${pre}${p.slug}/" class="fall__link" data-cursor="View">
-        <div class="fall__media">${img(p.cover, p.coverAlt, { sizes: '(min-width: 900px) 50vw, 90vw', cls: 'fall__img' })}<span class="pill fall__pill">${esc(roleOf(p))}</span></div>
+        <div class="fall__media${p.logos ? ' fall__media--plain' : ''}">${img(p.cover, p.coverAlt, { sizes: '(min-width: 900px) 50vw, 90vw', cls: 'fall__img' })}${p.logos ? '' : `<span class="pill fall__pill">${esc(roleOf(p))}</span>`}</div>
         <p class="fall__cap"><span class="fall__title">${esc(noDot(p.short || p.title))}</span></p>
       </a>
     </li>`).join('');
