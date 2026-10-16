@@ -150,6 +150,7 @@ export const projects = [
       ['8f47b1c6-5cd8-4711-b386-09b0147f2ffb/Arccos+Bandon+-+Marsh-336+%282%29.jpg', 'Four golfers at sunset'],
     ],
     stats: [
+      ['#1', 'E-commerce day in Arccos history'],
       ['1,300+', 'Units sold in the first 48 hours'],
       ['2x', 'Conversion vs. the previous product launch'],
     ],
