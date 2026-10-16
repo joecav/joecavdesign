@@ -10,7 +10,6 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ver = (f) => createHash('md5').update(readFileSync(join(ROOT, f))).digest('hex').slice(0, 8);
 const V_CSS = ver('assets/css/site.css'), V_JS = ver('assets/js/site.js');
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const br = (s = '') => esc(s).replace(/\n/g, '<br>');
 const noDot = (s = '') => String(s).replace(/\.(?=\s|$)/g, '');
