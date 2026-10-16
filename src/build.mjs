@@ -25,7 +25,7 @@ const socials = (cls = '', withEmail = false) => `<span class="social ${cls}">${
 // Selected Clients marquee: [file in assets/img/clients/logos, width/height ratio]
 const LOGO_ROWS = [
   [['arccos', 5.426, 1.15], ['pga-tour-wordmark', 0.781, 1], ['titleist', 3.483, 1], ['taylormade', 5.187, 1], ['ping', 3.847, 0.9]],
-  [['long-drink', 0.867, 1], ['ea-sports', 1, 0.95], ['srixon', 3.13, 1], ['cobra', 8.093, 0.72], ['cleveland', 2.889, 1.2]],
+  [['meta', 4.963, 1.05], ['long-drink', 0.867, 1], ['ea-sports', 1, 0.95], ['srixon', 3.13, 1], ['cobra', 8.093, 0.72], ['cleveland', 2.889, 1.2]],
   [['holderness-bourne', 20.9, 0.78], ['jjill', 1.431, 1.1], ['club-champion', 4.625, 1.15], ['random-golf-club', 0.863, 1], ['harvard-kennedy-school', 8.333, 1.15]],
 ];
 

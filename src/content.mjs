@@ -48,7 +48,7 @@ export const home = {
     { name: 'Collaboration & Iteration', text: 'Working closely with cross-functional teams and clients to refine and improve work. The best solutions come from feedback, iteration, and partnership.' },
   ],
   // Client logos: single-color PNGs in assets/img/clients/logos (sources in assets/img/clients/src), rows set in build.mjs LOGO_ROWS
-  clients: ['PGA Tour', 'Titleist', 'TaylorMade', 'Ping', 'Long Drink', 'EA Sports', 'Srixon', 'Cobra Golf', 'Cleveland Golf', 'Holderness & Bourne', 'Arccos Golf', 'J.Jill', 'Club Champion', 'Random Golf Club', 'Harvard Kennedy School'],
+  clients: ['Meta', 'PGA Tour', 'Titleist', 'TaylorMade', 'Ping', 'Long Drink', 'EA Sports', 'Srixon', 'Cobra Golf', 'Cleveland Golf', 'Holderness & Bourne', 'Arccos Golf', 'J.Jill', 'Club Champion', 'Random Golf Club', 'Harvard Kennedy School'],
   photo: { src: 'bdeff2b0-40b5-4738-93a9-f4163cbb312e/JoeandFitzy.webp', alt: 'Joe and a colleague on a golf course, one holding a club, the other a drone' },
 };
 
