@@ -1012,3 +1012,7 @@ body { letter-spacing: 0; }
 /* theme switch sits in the menu's bottom row, left of the email */
 .menu__foot { align-items: center; }
 .menu__foot .menu__theme { margin: 0; padding: 0; color: var(--muted); font-size: inherit; }
+
+/* Project meta: fixed three columns so Client / Role / Contributors line up on every page */
+.proj__head .meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .proj__head .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

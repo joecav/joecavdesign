@@ -256,7 +256,7 @@ export const projects = [
     slug: 'victory-hemp', title: 'Victory Hemp', client: 'Victory Hemp', year: '2020', services: 'Brand Identity + Design',
     cover: '1724864108196-5G9YLE31LC427FI4RZKP/6.jpg', coverAlt: 'Victory Hemp winged V mark',
     hero: '1724864124544-NL0K04KNYLDB16LRRD6H/6.jpg',
-    meta: [['Project', 'Branding\nPackaging Design\nApparel Design']],
+    meta: [['Role', 'Brand Designer']],
     gallery: [
       ['1724864124549-2ED2TX5WQCHB7I6QQSOP/victory_hemp-02-01-1.png', 'Victory Hemp logo suite'],
       ['1724864124554-6W8807RTM7DDSNOWQOTY/COLOR-01.png', 'Victory Hemp color palette'],
@@ -351,6 +351,7 @@ export const projects = [
   },
   {
     slug: 'logofolio', title: 'Logofolio', client: 'Various', services: 'Brand Identity', logos: true,
+    meta: [['Role', 'Brand Designer']],
     cover: '1724864108241-2FGFH9VNOAGONLW1NGK4/7.jpg', coverAlt: 'Songflow logo on textured paper',
     hero: '1724864110152-O6VQWDCWVHRMZ29QR4DQ/7.jpg',
     sections: [['Intro', 'Every logo begins with a simple idea, but the impact can last a lifetime. Designed with care and creativity, each aiming to capture the unique essence of its brand.']],

@@ -344,7 +344,7 @@ function projectPage(p, i) {
   const pre = '../';
   const next = projects[(i + 1) % projects.length];
   const prev = i > 0 ? projects[i - 1] : null;
-  const metaRows = [['Client', p.client], ...(p.year ? [['Year', p.year]] : []), ['Services', p.services], ...(p.meta || [])];
+  const metaRows = [['Client', p.client], ...(p.meta || [])]; // same fields on every project: Client, Role (+ Contributors where credited)
   const meta = metaRows.map(([k, v]) => `<div class="meta__cell"><p class="label">${esc(k)}</p><p>${br(v)}</p></div>`).join('');
   const sections = (p.sections || []).map(([k, v]) => `<section class="txt wrap txt--${p.col || 'narrow'}" data-reveal><h2 class="label txt__k">${esc(k)}</h2><p class="txt__v">${esc(v)}</p></section>`).join('');
   const stats = p.stats ? `<section class="stats wrap" aria-label="Results"><h2 class="label">The result</h2><ul class="stats__list">${p.stats.map(([n, l]) => `<li data-reveal><span class="stats__n" data-count="${esc(n)}">${esc(n)}</span><span class="muted">${esc(l)}</span></li>`).join('')}</ul></section>` : '';
