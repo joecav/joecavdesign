@@ -1,9 +1,14 @@
 // Static site generator. Run: node src/build.mjs  → writes HTML pages into the site root.
 // Each project keeps its current Squarespace URL (/arccosrangefinder etc.) as /<slug>/index.html.
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CDN, site, home, about, resume, projects, retired } from './content.mjs';
+// Cache-busting: each CSS/JS link carries a hash of the file, so browsers fetch the new version after every update.
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const ver = (f) => createHash('md5').update(readFileSync(join(ROOT, f))).digest('hex').slice(0, 8);
+const V_CSS = ver('assets/css/site.css'), V_JS = ver('assets/js/site.js');
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -98,7 +103,7 @@ function page({ pre, title, desc, active, body, cls = '', og }) {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b0c0e">
 <link rel="preload" href="${pre}assets/fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${pre}assets/css/site.css">
+<link rel="stylesheet" href="${pre}assets/css/site.css?v=${V_CSS}">
 <script>document.documentElement.classList.replace('no-js','js');try{var t=localStorage.getItem('jc-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body class="${cls}">
@@ -113,7 +118,7 @@ ${footer(pre)}
 <script src="${pre}assets/vendor/lenis.min.js" defer></script>
 <script src="${pre}assets/vendor/gsap.min.js" defer></script>
 <script src="${pre}assets/vendor/ScrollTrigger.min.js" defer></script>
-<script src="${pre}assets/js/site.js" defer></script>
+<script src="${pre}assets/js/site.js?v=${V_JS}" defer></script>
 </body>
 </html>
 `;
