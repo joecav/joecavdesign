@@ -1091,3 +1091,6 @@ body { letter-spacing: 0; }
 /* soft shade in the corner behind the chip, so the homepage-style chip reads on bright photos */
 .fall__media::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(120% 90% at 0% 0%, rgba(0,0,0,.42) 0%, rgba(0,0,0,.12) 28%, rgba(0,0,0,0) 48%); }
 .fall__media--plain::after { content: none; }
+
+/* "The result" label matches ROLE / CLIENT / INSIGHT */
+.stats > .label { font-family: var(--f-display); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--fg); }
