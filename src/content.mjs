@@ -149,6 +149,11 @@ export const projects = [
       ['07bbd4da-4afb-4de1-aa74-adcc25cddbfd/Arccos+Bandon+-+Marsh-066+%282%29.jpg', 'Golfer near the flag'],
       ['8f47b1c6-5cd8-4711-b386-09b0147f2ffb/Arccos+Bandon+-+Marsh-336+%282%29.jpg', 'Four golfers at sunset'],
     ],
+    stats: [
+      ['#1', 'Biggest e-commerce day in Arccos history'],
+      ['1,300+', 'Units sold in the first 48 hours'],
+      ['2x', 'Conversion vs. the previous product launch'],
+    ],
     col: 'narrow',
     leadAfterStats: true, // Insight first, then the packaging slideshow
     // Image layout mirrors the Squarespace page
