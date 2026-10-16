@@ -356,7 +356,7 @@ export const projects = [
     ],
   },
   {
-    slug: 'logofolio', title: 'Logofolio', client: 'Various', services: 'Brand Identity', logos: true,
+    slug: 'logofolio', title: 'Logos', client: 'Various', services: 'Brand Identity', logos: true,
     meta: [['Role', 'Brand Designer']],
     cover: '1724864108241-2FGFH9VNOAGONLW1NGK4/7.jpg', coverAlt: 'Songflow logo on textured paper',
     hero: '1724864110152-O6VQWDCWVHRMZ29QR4DQ/7.jpg',
