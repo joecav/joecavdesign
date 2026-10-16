@@ -1086,3 +1086,6 @@ body { letter-spacing: 0; }
 .fall__media { position: relative; }
 .fall__pill { position: absolute; z-index: 2; top: clamp(14px, 1.6vw, 24px); left: clamp(14px, 1.6vw, 24px); }
 .fall__pill { background: rgba(0, 0, 0, .38); border-color: rgba(255, 255, 255, .32); }
+
+/* About: no page heading, so the portrait and bio start just under the nav */
+.p-about .about { padding-top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px) + clamp(32px, 7vh, 88px)); }

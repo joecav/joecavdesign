@@ -378,9 +378,7 @@ function aboutPage() {
   const pre = '../';
   const svc = about.services.map((s) => `<span>${esc(s)}</span><i aria-hidden="true">•</i>`).join('');
   const body = `
-<section class="pagehead wrap">
-  <h1 class="pagehead__title"><span class="line"><span class="line__in">My story</span></span></h1>
-</section>
+<h1 class="sr-only">About Joe Cavadini</h1>
 <section class="about wrap">
   <figure class="about__portrait reveal-media">${img(about.portrait.src, about.portrait.alt, { sizes: '(min-width: 900px) 40vw, 100vw', cls: 'parallax', eager: true })}</figure>
   <div class="about__copy">
