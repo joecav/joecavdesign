@@ -89,7 +89,7 @@ const footer = (pre) => `<footer class="ftr" data-footer>
 
 function page({ pre, title, desc, active, body, cls = '', og }) {
   return `<!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -100,7 +100,7 @@ function page({ pre, title, desc, active, body, cls = '', og }) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${esc(og || site.ogImage)}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0c0e">
+<meta name="theme-color" content="#f3f4f6">
 <link rel="preload" href="${pre}assets/fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${pre}assets/css/site.css?v=${V_CSS}">
 <script>document.documentElement.classList.replace('no-js','js');try{var t=localStorage.getItem('jc-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
