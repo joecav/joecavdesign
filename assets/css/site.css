@@ -991,3 +991,6 @@ body { letter-spacing: 0; }
 
 /* Selected Work: role chip pinned to the card's top-left corner */
 .stack__pill { position: absolute; z-index: 2; top: clamp(20px, 4vh, 40px); left: clamp(20px, 3vw, 40px); }
+
+/* Selected Clients: no rules above or below the logos */
+.logo-rows { border-block: 0; }
