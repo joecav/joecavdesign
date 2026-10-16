@@ -1001,3 +1001,11 @@ body { letter-spacing: 0; }
 .video__play svg { width: 18px; fill: #fff; margin-left: 2px; }
 .video__poster:hover .video__play { background: rgba(255,255,255,.24); border-color: rgba(255,255,255,.8); }
 @media (max-width: 760px) { .video__play { width: 48px; height: 48px; margin: -24px 0 0 -24px; } .video__play svg { width: 16px; } }
+
+/* Mobile: light/dark switch lives in the hamburger menu */
+.menu__theme { display: inline-flex; align-items: center; gap: 12px; align-self: flex-start; margin-top: auto; margin-bottom: 28px; padding: 10px 0; color: var(--fg); font-size: var(--t-sm); }
+.menu__theme .theme-btn { width: 20px; height: 20px; }
+.menu__theme-d { display: none; }
+:root[data-theme="dark"] .menu__theme-l { display: none; }
+:root[data-theme="dark"] .menu__theme-d { display: inline; }
+@media (max-width: 760px) { .hdr__util > .theme-btn { display: none; } }
