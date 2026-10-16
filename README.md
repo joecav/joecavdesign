@@ -1,30 +1,21 @@
-# joecavdesign.com — redesign
+# joecavdesign
 
-Static site. No build step needed to host it: upload this folder as-is.
+Portfolio site for Joe Cavadini, art director and designer based in Brooklyn.
 
-## Preview on your Mac
-Open Terminal in this folder and run:
+Static HTML, CSS and JavaScript, hosted on GitHub Pages.
 
-    python3 -m http.server 8000
+## Edit
 
-then visit http://localhost:8000. (Double-clicking index.html also works, but browsers block the self-hosted fonts on file:// pages.)
-
-## Edit content
-All copy, project lists, and image paths live in `src/content.mjs`. After editing, regenerate the pages:
+All copy, projects and image paths live in `src/content.mjs`. After editing, rebuild the pages:
 
     node src/build.mjs
 
-Styles: `assets/css/site.css`. Motion and interactions: `assets/js/site.js` (Lenis smooth scroll + GSAP ScrollTrigger, both bundled in `assets/vendor`).
+Styles are in `assets/css/site.css`. Motion is in `assets/js/site.js` (Lenis and GSAP ScrollTrigger, bundled in `assets/vendor`).
 
-## URLs
-Every page keeps its current Squarespace URL (`/work`, `/about`, `/contact`, `/resume`, `/arccosrangefinder`, `/arccos-link-pro`, …), so existing links keep working.
+## Preview locally
 
-## Images
-Images still load from Squarespace's CDN. Before you cancel Squarespace, run
+    python3 -m http.server 8000
 
-    node tools/localize-images.mjs
+Then open http://localhost:8000.
 
-to copy them into `assets/img` and repoint the pages.
-
-## Host
-Cloudflare Pages, Netlify, or Vercel: drag this folder in (or connect a repo). `404.html` is picked up automatically.
+© Joe Cavadini. All rights reserved. Client logos and project work belong to their respective owners.
