@@ -333,6 +333,10 @@
   // Process: light the step at the viewport center, fill the meter.
   const steps = $$('[data-step]'), bar = $('[data-process-bar]');
   highlight(steps, '60%');
+  // Phones: steps pin just under the pinned Process heading, so measure it.
+  const pSide = $('.process .duo__side'), pSec = $('.process');
+  const setPh = () => pSec && pSide && pSec.style.setProperty('--ph', pSide.offsetHeight + 'px');
+  setPh(); addEventListener('resize', setPh);
   if (bar) gsap.to(bar, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.process__list', start: 'top 60%', end: 'bottom 60%', scrub: true } });
 
   // Stats count up.

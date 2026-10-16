@@ -147,7 +147,7 @@ function homePage() {
         </div>
       </a>
     </article>`).join('');
-  const focus = home.focus.map((f) => `<li class="focus__row" data-icon="${CDN}${f.img}"><span class="focus__ico" aria-hidden="true" style='--icon:url("${CDN}${f.img}")'></span><span class="focus__name"><span class="focus__long">${esc(f.name)}</span><span class="focus__short">${esc(f.name.replace(/ and /g, ' & '))}</span></span></li>`).join('');
+  const focus = home.focus.map((f) => `<li class="focus__row" data-icon="${CDN}${f.img}"><span class="focus__ico" aria-hidden="true" style='-webkit-mask-image:url("${CDN}${f.img}");mask-image:url("${CDN}${f.img}")'></span><span class="focus__name"><span class="focus__long">${esc(f.name)}</span><span class="focus__short">${esc(f.name.replace(/ and /g, ' & '))}</span></span></li>`).join('');
   const process = home.process.map((p, i) => `<li class="process__step" data-step>
       <div><h3 class="process__name">${esc(p.name)}</h3><p class="process__text">${esc(p.text)}</p></div>
     </li>`).join('');

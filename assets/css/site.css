@@ -731,7 +731,7 @@ body { letter-spacing: 0; }
 @media (max-width: 760px) {
   .focus__row { display: flex; align-items: center; gap: 14px; }
   .focus__ico { display: block; flex: 0 0 auto; --s: 0.14; width: calc(240px * var(--s)); height: calc(240px * var(--s)); background: var(--accent);
-    -webkit-mask-image: var(--icon); mask-image: var(--icon); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
     -webkit-mask-size: calc(700px * var(--s)) calc(738px * var(--s)); mask-size: calc(700px * var(--s)) calc(738px * var(--s));
     -webkit-mask-position: calc(-240px * var(--s)) calc(-160px * var(--s)); mask-position: calc(-240px * var(--s)) calc(-160px * var(--s)); }
   .focus__long { display: none; }
@@ -975,4 +975,16 @@ body { letter-spacing: 0; }
 @media (prefers-reduced-motion: reduce) {
   .logo-track { flex-wrap: wrap; justify-content: center; width: auto; max-width: 1100px; margin: 0 auto; row-gap: 24px; }
   .logo:nth-child(n+6) { display: none; }
+}
+
+/* ---------- Process on phones: heading pins, each step slides over the last (mirrors Selected Work) ---------- */
+@media (max-width: 760px) {
+  .process .duo { gap: 0; }
+  .process .duo__side { position: sticky; top: var(--hdr-h); z-index: 3; background: var(--bg); padding: 12px 0 16px; gap: 8px; }
+  .process .process__meter { margin-top: 8px; max-width: none; }
+  .process__list { border-top: 0; padding-bottom: 12svh; }
+  .process__step { position: sticky; top: calc(var(--hdr-h) + var(--ph, 110px)); z-index: 2; background: var(--bg);
+    min-height: 34svh; padding: 22px 0 28px; border-top: 1px solid var(--line); border-bottom: 0; }
+  .process__step:last-child { border-bottom: 0; }
+  .js .process__step, .js .process__step.is-active { opacity: 1; }
 }
