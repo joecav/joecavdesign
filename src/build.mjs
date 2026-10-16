@@ -355,7 +355,6 @@ function projectPage(p, i) {
   const body = `
 <article class="proj">
   <header class="proj__head wrap">
-    <p class="mono muted"><a class="ulink" href="${pre}work/">All work</a></p>
     <h1 class="proj__title">${esc(noDot(p.title)).split(' ').map((w) => `<span class="line"><span class="line__in">${w}</span></span>`).join(' ')}</h1>
     <div class="meta">${meta}</div>
   </header>
