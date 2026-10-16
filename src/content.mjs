@@ -19,7 +19,7 @@ export const home = {
   // Headline split into lines for the reveal; {…} marks the accent words.
   headline: ['Art Director + Designer', 'helping brands tell', '{good stories,}', 'built to perform.'],
   manifesto: "I'm Joe Cavadini, a visual communicator specializing in art direction, web design, digital design, print design, and branding. Every strong creative solution starts with the right questions.",
-  // Hero reel: web copy of Desktop/Videos/JC-Reel.mp4 (no audio). Poster is a frame at 0:04.
+  // Hero reel: web copy of Desktop/Videos/JC-Reel.mp4 (no audio). Trimmed to start at 0:05.9 (the crystal); poster is its first frame.
   reelVideo: 'assets/video/hero-reel.mp4',
   reelPoster: 'assets/video/hero-reel.jpg',
   reel: CDN + '6f99a4fc-517b-477a-9125-7193ce5c3d5b/ARCCOS_RANGEFINDER_GENERIC_16x9_COMP.gif',

@@ -159,8 +159,8 @@ function homePage() {
   const body = `
 <section class="reel reel--top" data-reel-top aria-label="Showreel">
   <div class="reel__frame" data-reel-frame>
-    <video class="reel__img" data-reel-video autoplay muted loop playsinline preload="auto" poster="${pre}${home.reelPoster}" aria-label="Showreel: Arccos Smart Laser Rangefinder">
-      <source src="${pre}${home.reelVideo}" type="video/mp4">
+    <video class="reel__img" data-reel-video autoplay muted loop playsinline preload="auto" poster="${pre}${home.reelPoster}?v=${ver(home.reelPoster)}" aria-label="Showreel: Arccos Smart Laser Rangefinder">
+      <source src="${pre}${home.reelVideo}?v=${ver(home.reelVideo)}" type="video/mp4">
     </video>
   </div>
   <span class="reel__cue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6"/></svg></span>
