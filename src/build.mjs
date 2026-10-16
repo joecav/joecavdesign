@@ -65,7 +65,6 @@ const nav = (pre, active) => {
     ${link('contact/', 'Contact', 'contact')}
   </nav>
   <div class="hdr__util">
-    <span class="hdr__clock mono" data-clock aria-label="Local time in Brooklyn">BK --:--</span>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch color theme"><span></span></button>
     <button class="menu-btn burger" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i></button>
   </div>
