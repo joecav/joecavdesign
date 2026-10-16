@@ -994,3 +994,10 @@ body { letter-spacing: 0; }
 
 /* Selected Clients: no rules above or below the logos */
 .logo-rows { border-block: 0; }
+
+/* Video play buttons: quiet white glass circle */
+.video__play { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.55);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: background .3s ease, border-color .3s ease; }
+.video__play svg { width: 18px; fill: #fff; margin-left: 2px; }
+.video__poster:hover .video__play { background: rgba(255,255,255,.24); border-color: rgba(255,255,255,.8); }
+@media (max-width: 760px) { .video__play { width: 48px; height: 48px; margin: -24px 0 0 -24px; } .video__play svg { width: 16px; } }
