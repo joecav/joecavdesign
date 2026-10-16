@@ -73,8 +73,7 @@ const nav = (pre, active) => {
   <nav class="menu__nav" aria-label="Mobile">
     <a href="${pre}work/">Work</a><a href="${pre}about/">About</a><a href="${pre}contact/">Contact</a>
   </nav>
-  <button class="menu__theme" type="button" data-theme-toggle aria-label="Switch color theme"><span class="theme-btn" aria-hidden="true"><span></span></span><span class="menu__theme-l mono">Dark mode</span><span class="menu__theme-d mono">Light mode</span></button>
-  <div class="menu__foot mono"><span>${esc(site.location)}</span><span>${esc(site.email)}</span></div>
+  <div class="menu__foot mono"><button class="menu__theme" type="button" data-theme-toggle aria-label="Switch color theme"><span class="theme-btn" aria-hidden="true"><span></span></span><span class="menu__theme-l mono">Dark mode</span><span class="menu__theme-d mono">Light mode</span></button><span>${esc(site.email)}</span></div>
 </div>`;
 };
 
