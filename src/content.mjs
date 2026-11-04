@@ -40,13 +40,12 @@ export const home = {
     { name: 'Video and Photography', img: 'bb343b07-eeba-44e5-929a-bf35750b6eb9/Photography+%26+Video.png' },
     { name: 'Product Marketing', img: '5feb1802-b42c-46ab-9396-c2d636dc5b1f/Product+Marketing.png' },
   ],
-  // Process: one line per step; each step's image fades in beside the heading as it lights up (desktop)
   process: [
-    { name: 'Discovery & Research', text: 'Every good idea starts with a better question.', img: '4e0dd6e5-b442-4ecf-999a-29756ea6c9ff/Smart-Laser-1.png', alt: 'Smart Laser product render' },
-    { name: 'Strategy & Concepting', text: 'Where the insight becomes the idea.', img: 'de900d58-8946-44a8-b6af-43f11683bfc0/Plays+like-v2+.png', alt: 'The most accurate Plays Like distance concept card' },
-    { name: 'Creative Direction', text: 'On set, on screen, on every touchpoint.', img: '603941ec-7768-4c21-9cc1-7abcaa578b74/Arccos+Bandon+-+Marsh-159.jpg', alt: 'Link Pro on-course shoot at Bandon Dunes' },
-    { name: 'Design Execution', text: 'Sweating the last 5%.', img: '462d2a7e-b89a-43dd-9030-1ec52152316f/SL-Hero.png', alt: 'Smart Laser launch hero' },
-    { name: 'Collaboration & Iteration', text: 'The best work is never a solo act.', img: '1724864118534-C63UOAZKG8WYAF10EWHX/AG_PGAT_BrandGuidlines.png', alt: 'Arccos x PGA TOUR co-brand guidelines' },
+    { name: 'Discovery & Research', text: 'Understanding the brand, audience, and business goals through research and stakeholder collaboration. Every strong creative solution starts with the right questions.' },
+    { name: 'Strategy & Concepting', text: 'Translating insights into creative concepts that align with brand positioning and resonate with the target audience. This is where strategy meets storytelling.' },
+    { name: 'Creative Direction', text: 'Leading the visual and conceptual vision across all touchpoints, from photo and video shoots to campaign assets. Ensuring every piece ladders up to a cohesive story.' },
+    { name: 'Design Execution', text: "Crafting the final deliverables with attention to detail and craft. Whether it's brand identity, packaging, or digital assets, execution is where ideas become real." },
+    { name: 'Collaboration & Iteration', text: 'Working closely with cross-functional teams and clients to refine and improve work. The best solutions come from feedback, iteration, and partnership.' },
   ],
   // Client logos: single-color PNGs in assets/img/clients/logos (sources in assets/img/clients/src), rows set in build.mjs LOGO_ROWS
   clients: ['Meta', 'PGA Tour', 'Titleist', 'TaylorMade', 'Ping', 'Long Drink', 'EA Sports', 'Srixon', 'Cobra Golf', 'Cleveland Golf', 'Holderness & Bourne', 'Arccos Golf', 'J.Jill', 'Club Champion', 'Random Golf Club', 'Harvard Kennedy School'],

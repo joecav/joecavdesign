@@ -202,7 +202,7 @@ function homePage() {
 
 <section class="process wrap" aria-labelledby="process-h" data-process>
   <div class="duo">
-    <div class="duo__side"><h2 id="process-h" class="h-section">Process</h2><p class="muted">From the first question to the final file.</p><div class="process__meter" aria-hidden="true"><span data-process-bar></span></div><div class="process__shots" data-process-shots aria-hidden="true">${home.process.map((p, i) => `<figure class="process__shot${i === 0 ? ' is-on' : ''}">${img(p.img, p.alt, { sizes: '(min-width: 900px) 34vw, 1px', cls: 'process__shot-img' })}</figure>`).join('')}</div></div>
+    <div class="duo__side"><h2 id="process-h" class="h-section">Process</h2><p class="muted">From the first question to the final file.</p><div class="process__meter" aria-hidden="true"><span data-process-bar></span></div></div>
     <ol class="duo__list process__list">${process}</ol>
   </div>
 </section>
