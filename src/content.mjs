@@ -323,13 +323,13 @@ export const projects = [
     cover: '1724864108216-519I1G162SJ4EW83VMWH/PING-1.jpg', coverAlt: 'Golfer in a grey cap',
     hero: '1724864114791-SSYQ080NYOX0KZXT1JLG/Arccos+Bandon+-+Marsh-141.jpg',
     meta: [['Role', 'Art Director']],
-    videos: [{ yt: 'tyl46iiH9UE', title: 'PING x Arccos' }, { yt: 'nfKHxd7M_ZY', title: 'PING x Arccos' }, { yt: 'q5PLQRfvLdQ', title: 'Arccos Air Has Changed the Game Again | Erik Anders Lang x PING' }],
+    videos: [{ yt: 'q5PLQRfvLdQ', title: 'Arccos Air Has Changed the Game Again | Erik Anders Lang x PING' }, { yt: 'tyl46iiH9UE', title: 'PING x Arccos' }, { yt: 'nfKHxd7M_ZY', title: 'PING x Arccos' }],
     col: 'medium',
     // Image layout mirrors the Squarespace page
     layout: [
+      ['video', { yt: 'q5PLQRfvLdQ', title: 'Arccos Air Has Changed the Game Again | Erik Anders Lang x PING' }],
       ['video', { yt: 'tyl46iiH9UE', title: 'PING x Arccos' }],
       ['video', { yt: 'nfKHxd7M_ZY', title: 'PING x Arccos' }],
-      ['video', { yt: 'q5PLQRfvLdQ', title: 'Arccos Air Has Changed the Game Again | Erik Anders Lang x PING' }],
     ],
   },
   {
