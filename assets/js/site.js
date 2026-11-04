@@ -345,6 +345,10 @@
   // Process: light the step at the viewport center, fill the meter.
   const steps = $$('[data-step]'), bar = $('[data-process-bar]');
   highlight(steps, '60%');
+  // Swap the Process image to match the step in focus.
+  const shots = $$('[data-process-shots] .process__shot');
+  if (shots.length) steps.forEach((st, i) => ScrollTrigger.create({ trigger: st, start: 'top 60%', end: 'bottom 60%',
+    onToggle: (self) => { if (self.isActive) shots.forEach((f, j) => f.classList.toggle('is-on', j === i)); } }));
   // Phones: steps pin just under the pinned Process heading, so measure it.
   const pSide = $('.process .duo__side'), pSec = $('.process');
   const setPh = () => pSec && pSide && pSec.style.setProperty('--ph', pSide.offsetHeight + 'px');
