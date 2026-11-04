@@ -122,7 +122,7 @@
     const loop = () => { cx += (x - cx) * .14; cy += (y - cy) * .14; pv.style.translate = `${cx + 24}px ${cy - pv.offsetHeight / 2}px`; raf = requestAnimationFrame(loop); };
     $$('[data-preview], [data-icon]').forEach((row) => {
       row.addEventListener('mouseenter', (e) => {
-        if (row.dataset.icon) { pv.classList.add('is-icon'); pv.style.setProperty('--icon', `url("${row.dataset.icon}")`); }
+        if (row.dataset.icon) { pv.classList.add('is-icon'); const u = `url("${new URL(row.dataset.icon, location.href).href}")`; pv.style.webkitMaskImage = u; pv.style.maskImage = u; }
         else { pv.classList.remove('is-icon'); pimg.src = row.dataset.preview; }
         pv.classList.add('is-on'); if (!raf) { cx = x = e.clientX; cy = y = e.clientY; loop(); }
       });

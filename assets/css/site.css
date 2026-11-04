@@ -1126,3 +1126,15 @@ body { letter-spacing: 0; }
 .about .about__copy .about__lead { font-size: var(--lead-size); line-height: 1.38; font-weight: 400; letter-spacing: -0.01em; }
 .idx__client, .idx__svc { font-size: var(--body-size); font-weight: 300; }
 .ftr__v { font-size: var(--body-size); }
+
+/* Areas of Focus, desktop: the row's icon slides in at the right end on hover (no cursor-follow) */
+@media (min-width: 761px) {
+  .p-home .focus__preview { display: none !important; }
+  .focus__row { position: relative; }
+  .focus__row .focus__ico { display: block; position: absolute; right: 0; top: 50%; --s: .3; width: calc(240px * var(--s)); height: calc(240px * var(--s));
+    background: var(--accent); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-size: calc(700px * var(--s)) calc(738px * var(--s)); mask-size: calc(700px * var(--s)) calc(738px * var(--s));
+    -webkit-mask-position: calc(-240px * var(--s)) calc(-160px * var(--s)); mask-position: calc(-240px * var(--s)) calc(-160px * var(--s));
+    opacity: 0; transform: translate(-16px, -50%); transition: opacity .35s ease, transform .5s var(--ease); pointer-events: none; }
+  .focus__row:hover .focus__ico { opacity: 1; transform: translate(0, -50%); }
+}
