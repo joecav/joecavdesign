@@ -323,6 +323,10 @@ export const projects = [
     cover: '1724864108216-519I1G162SJ4EW83VMWH/PING-1.jpg', coverAlt: 'Golfer in a grey cap',
     hero: '1724864114791-SSYQ080NYOX0KZXT1JLG/Arccos+Bandon+-+Marsh-141.jpg',
     meta: [['Role', 'Art Director']],
+    sections: [
+      ['Insight', "PING golfers already trust their equipment. Every club is fit to their swing, and the grip in their hands is where Arccos lives. The opportunity was to meet those players inside a brand they already believe in, and show them that the same precision PING puts into fitting can follow them onto the course, shot by shot."],
+      ['Approach', "Rather than introduce Arccos as a separate product, we built it into the PING relationship: a co-branded trial for PING players, free sensors, and a dedicated landing page every PING grip plug and email sends golfers to. The creative leaned on real voices, from Erik Anders Lang's on-course take to PING's own players, so the message came from inside the game, not from an ad."],
+    ],
     videos: [{ yt: 'q5PLQRfvLdQ', title: 'Arccos Air Has Changed the Game Again | Erik Anders Lang x PING' }, { yt: 'tyl46iiH9UE', title: 'PING x Arccos' }, { yt: 'nfKHxd7M_ZY', title: 'PING x Arccos' }],
     col: 'medium',
     // Image layout mirrors the Squarespace page
