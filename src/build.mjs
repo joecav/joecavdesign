@@ -287,7 +287,7 @@ function vid(v, ratio, pre = '../') {
   const thumb = v.thumb || (v.src ? pre + v.poster : v.yt ? `https://i.ytimg.com/vi/${v.yt}/maxresdefault.jpg` : `https://vumbnail.com/${v.vimeo}.jpg`);
   return `<figure class="video lay__item reveal-media" data-video="${kind}" data-id="${id}"${v.src ? ` data-src="${pre}${v.src}"` : ''}${ratio ? ` style="--ar:${ratio}"` : ''}>
   <button class="video__poster" type="button" aria-label="Play ${esc(v.title)}" data-cursor="Play">
-    <img src="${thumb}" alt="${esc(v.title)}" loading="lazy" decoding="async">
+    <img src="${thumb}" alt="${esc(v.title)}" loading="lazy" decoding="async"${v.yt && !v.thumb ? ` onload="if(this.naturalWidth<=120)this.src='https://i.ytimg.com/vi/${v.yt}/hqdefault.jpg'"` : ''}>
     <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
   </button>
 </figure>`;
