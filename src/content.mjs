@@ -210,6 +210,10 @@ export const projects = [
     cover: '1724864108188-DHQ3B9HFCSBA0PKHCDH2/AG-PGA-1.png', coverAlt: 'Golfer swinging in front of a PGA TOUR crowd',
     hero: '1724864118520-RXFH49AR0RDKN720ONG8/AG-PGATOUR-1.png',
     meta: [['Role', 'Art Director\nDesigner']],
+    sections: [
+      ['Insight', "Being named the Official Game Tracker of the PGA TOUR gave Arccos something no spec sheet could: credibility from the highest level of the game. The challenge was making that endorsement feel earned, connecting the same data the pros rely on to the everyday golfer tracking a Saturday round."],
+      ['Approach', "We started with the system. A co-branded lockup and guidelines set the rules for how the two marks live together, keeping the TOUR's standards intact across every touchpoint. From there the partnership rolled out across web, social, retail displays, packaging and the app, so the TOUR endorsement showed up everywhere a golfer met Arccos, always pointing back to one idea: play with the same insight as the pros."],
+    ],
     videos: [{ vimeo: '1004545763', thumb: 'https://i.vimeocdn.com/video/1921100265-d0190ad8e98972eb15291c1331abe4f1ca817259f5c265bb92776b2408e8d354-d_1920x1080', title: 'Arccos x PGA TOUR' }],
     gallery: [
       ['1724864118534-C63UOAZKG8WYAF10EWHX/AG_PGAT_BrandGuidlines.png', 'Arccos x PGA TOUR brand guidelines'],
