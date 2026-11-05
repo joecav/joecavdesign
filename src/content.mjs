@@ -116,7 +116,7 @@ export const projects = [
       ['full', 'assets/img/work/meta/crm.jpg'],
       ['pair', 'assets/img/work/meta/paid-916-1.jpg', 'assets/img/work/meta/paid-916-2.jpg', '429/536'],
       ['full', 'assets/img/work/meta/paid-social.jpg'],
-      ['full', 'assets/img/work/meta/product.jpg'],
+      ['loop', { src: 'assets/video/meta-glasses.mp4', poster: 'assets/video/meta-glasses.jpg', title: 'Meta AI glasses and the Arccos sensor rotating' }, '1618/1080'],
       ['full', 'assets/img/work/meta/story-lockup.jpg'],
       ['pair', 'assets/img/work/meta/story-q.jpg', 'assets/img/work/meta/story-a.jpg', '429/254'],
       ['pair', 'assets/img/work/meta/pr-1.jpg', 'assets/img/work/meta/pr-2.jpg', '429/536'],

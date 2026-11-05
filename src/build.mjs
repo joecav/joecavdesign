@@ -327,6 +327,7 @@ function layoutParts(p) {
     if (kind === 'small') html = `<div class="lay__row lay__row--small">${fig(a)}</div>`;
     if (kind === 'pair') html = `<div class="lay__row lay__row--2">${fig(a, c)}${fig(b, c)}</div>`;
     if (kind === 'grid3') html = `<div class="lay__row lay__row--3">${list(a).map((s) => fig(s, b, '', '(min-width: 900px) 30vw, 50vw')).join('')}</div>`;
+    if (kind === 'loop') html = `<div class="lay__row"><figure class="lay__item reveal-media"${b ? ` style="--ar:${b}"` : ''}><video class="lay__loop" src="@@PRE@@${a.src}?v=${ver(a.src)}" poster="@@PRE@@${a.poster}" autoplay muted loop playsinline preload="metadata" aria-label="${esc(a.title)}"></video></figure></div>`;
     if (kind === 'video') html = `<div class="lay__row">${vid(a)}</div>`;
     if (kind === 'videopair') html = `<div class="lay__row lay__row--2">${vid(a, c)}${vid(b, c)}</div>`;
     rest.push(`<div class="lay__wrap">${html}</div>`);
