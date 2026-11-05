@@ -97,7 +97,6 @@ export const projects = [
       ['assets/img/work/meta/paid-916-1.jpg', 'Vertical paid ad, AI Glasses, Now with Arccos'],
       ['assets/img/work/meta/paid-916-2.jpg', 'Vertical paid ad, Get Hands-Free Smarter Insights'],
       ['assets/img/work/meta/paid-social.jpg', 'Instagram story and reel ads'],
-      ['assets/img/work/meta/product.jpg', 'Meta AI glasses with the Arccos sensor'],
       ['assets/img/work/meta/story-lockup.jpg', 'Golfer wearing the glasses with the Arccos and Meta lockup'],
       ['assets/img/work/meta/story-q.jpg', 'Golfer asking, Hey Meta, what club should I use'],
       ['assets/img/work/meta/story-a.jpg', 'Answer overlay, This should be a nice comfortable 9 iron'],
