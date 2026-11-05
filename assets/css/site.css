@@ -1141,3 +1141,9 @@ body { letter-spacing: 0; }
 
 /* Looping product film in the image column */
 .lay__loop { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Phones: lighter Selected Work cards */
+@media (max-width: 760px) {
+  .stack__link, .stack__img { will-change: auto; }
+  .stack__img { transition: none; }
+}

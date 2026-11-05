@@ -243,6 +243,8 @@
 
   /* ================= GSAP choreography ================= */
   gsap.registerPlugin(ScrollTrigger);
+  // Phones: don't recalculate every trigger when the address bar shows/hides (causes jumps mid-scroll).
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   // Section pause: as each section arrives under the nav, briefly ease off the wheel so the scroll settles for a beat.
   if (lenis) {
@@ -286,11 +288,20 @@
 
   // Selected-work stack: each panel recedes as the next slides over it.
   const items = $$('[data-stack-item]');
+  const phone = matchMedia('(max-width: 760px)').matches;
+  // The pinned "Selected Work" bar leaves with the last card instead of hanging over empty space.
+  const selHead = $('.sel__head'), lastItem = items[items.length - 1];
+  if (selHead && lastItem) {
+    const pinTop = () => parseFloat(getComputedStyle(lastItem).top) || 0;
+    gsap.to(selHead, { y: () => -(lastItem.offsetHeight + selHead.offsetHeight), ease: 'none', scrollTrigger: {
+      trigger: '.stack', start: () => `bottom ${pinTop() + lastItem.offsetHeight}px`, end: () => `+=${lastItem.offsetHeight + selHead.offsetHeight}`, scrub: true, invalidateOnRefresh: true } });
+  }
   items.forEach((it, i) => {
     const media = $('.stack__media', it), copy = $('.stack__copy', it);
     gsap.from($$('.pill, .stack__title, .stack__meta', it), { yPercent: 40, opacity: 0, duration: 1.1, stagger: .07, ease: E, scrollTrigger: { trigger: it, start: 'top 55%' } });
     const nxt = items[i + 1];
-    if (nxt) gsap.to($('.stack__link', it), { scale: 0.88, ease: 'none', scrollTrigger: { trigger: nxt, start: 'top bottom', end: 'top top', scrub: true } });
+    // Desktop only: on phones a scrubbed scale on a sticky card stutters (touch scroll runs off the main thread).
+    if (nxt && !phone) gsap.to($('.stack__link', it), { scale: 0.88, ease: 'none', scrollTrigger: { trigger: nxt, start: 'top bottom', end: 'top top', scrub: true } });
 
   });
 
