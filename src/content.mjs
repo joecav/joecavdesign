@@ -88,7 +88,7 @@ export const projects = [
     ],
     gallery: [
       ['assets/img/work/meta-3x/lockup.jpg', 'Arccos and Meta lockup'],
-      ['assets/img/work/meta-3x/web.jpg', 'Arccos x Meta landing page on laptop and phone'],
+      ['assets/img/work/meta-3x/web-v2.jpg', 'Arccos x Meta landing page on laptop and phone'],
       ['assets/img/work/meta-3x/onboarding.jpg', 'Onboarding screens for Arccos on Meta AI glasses'],
       ['assets/img/work/meta-3x/app-1.jpg', 'Arccos app GPS view beside a golfer chipping'],
       ['assets/img/work/meta-3x/app-2.jpg', 'Arccos strokes gained screen beside a golfer putting'],
@@ -109,7 +109,7 @@ export const projects = [
     col: 'narrow',
     layout: [
       ['full', 'assets/img/work/meta-3x/lockup.jpg'],
-      ['full', 'assets/img/work/meta-3x/web.jpg'],
+      ['full', 'assets/img/work/meta-3x/web-v2.jpg'],
       ['full', 'assets/img/work/meta-3x/onboarding.jpg'],
       ['grid3', ['assets/img/work/meta-3x/app-1.jpg', 'assets/img/work/meta-3x/app-2.jpg', 'assets/img/work/meta-3x/app-3.jpg'], '279/302'],
       ['full', 'assets/img/work/meta-3x/crm.jpg'],
