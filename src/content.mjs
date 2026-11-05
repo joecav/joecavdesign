@@ -10,7 +10,7 @@ export const site = {
   hours: '24 HRS • Appointment Only',
   linkedin: 'https://www.linkedin.com/in/joecavadini/',
   instagram: 'https://www.instagram.com/joecav_dbg/',
-  url: 'https://www.joecavdesign.com',
+  url: 'https://joecavdesign.com',
   ogImage: CDN + 'eaa0dd22-bc67-4f95-9d0a-dbfeea2e1002/JC-1.png?format=1500w',
 };
 

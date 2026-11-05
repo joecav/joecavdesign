@@ -93,11 +93,12 @@ function page({ pre, title, desc, active, body, cls = '', og }) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)}</title>
-<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="${esc(desc)}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${esc(og || site.ogImage)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Joe Cavadini">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f3f4f6">
 <link rel="preload" href="${pre}assets/fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin>
@@ -122,8 +123,16 @@ ${footer(pre)}
 `;
 }
 
+const SITEMAP = [];
 function write(rel, html) {
   html = html.replace(/https:\/\/images\.squarespace-cdn\.com\/content\/v1\/66cf56643bd8bd2cca885d53\/([^"'?\s)]+)(\?format=\d+w)?/g, (_, p) => sqPath(p, false));
+  // SEO: canonical + og:url on real pages, absolute share images
+  if (!rel.startsWith('404') && !html.includes('rel="canonical"')) {
+    const canon = `${site.url}/${rel.replace(/index\.html$/, '')}`;
+    html = html.replace('</head>', `<link rel="canonical" href="${canon}">\n<meta property="og:url" content="${canon}">\n</head>`);
+    if (rel !== '404.html') SITEMAP.push(canon);
+  }
+  html = html.replace(/(og:image" content=")@@PRE@@/, `$1${site.url}/`);
   html = html.replaceAll('@@PRE@@', rel.includes('/') ? '../'.repeat(rel.split('/').length - 1) : '');
   const out = join(ROOT, rel);
   mkdirSync(dirname(out), { recursive: true });
@@ -206,7 +215,8 @@ function homePage() {
     ${LOGO_ROWS.map((row, r) => `<div class="logo-row logo-row--${r}"><div class="logo-track">${Array(4).fill(row.map(([f, ar, k]) => `<img class="logo" src="${pre}assets/img/clients/logos/${f}.png" alt="" decoding="async" style="--ar:${ar};--s:${(k * Math.min(1.55, 1.5 * Math.pow(ar, -0.42))).toFixed(3)}">`).join('')).join('')}</div></div>`).join('\n    ')}
   </div>
 </section>`;
-  write('index.html', page({ pre, title: 'Joe Cavadini — Art Director + Designer', desc: 'Brooklyn-based art director and designer helping brands tell good stories, built to perform.', active: 'home', body, cls: 'p-home' }));
+  const ld = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Person', name: 'Joe Cavadini', jobTitle: 'Art Director and Designer', url: site.url, email: 'mailto:' + site.email, address: { '@type': 'PostalAddress', addressLocality: 'Brooklyn', addressRegion: 'NY', addressCountry: 'US' }, sameAs: [site.linkedin, site.instagram] })}</script>`;
+  write('index.html', page({ pre, title: 'Joe Cavadini — Art Director + Designer', desc: 'Brooklyn-based art director and designer helping brands tell good stories, built to perform.', active: 'home', body, cls: 'p-home' }).replace('</head>', ld + '\n</head>'));
 }
 
 // One short role per project for cards and the index: the homepage card role if there is one, else the first line of Role.
@@ -436,3 +446,7 @@ function redirects() {
 }
 
 redirects(); homePage(); workPage(); projects.forEach(projectPage); aboutPage(); contactPage(); resumePage(); notFound();
+// Search engines: allow crawling, list every page, and pin the custom domain for GitHub Pages.
+writeFileSync(join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
+writeFileSync(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${SITEMAP.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`);
+writeFileSync(join(ROOT, 'CNAME'), new URL(site.url).hostname + '\n');
