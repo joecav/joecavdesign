@@ -369,7 +369,6 @@ function projectPage(p, i) {
 // ---------- about ----------
 function aboutPage() {
   const pre = '../';
-  const svc = about.services.map((s) => `<span>${esc(s)}</span><i aria-hidden="true">•</i>`).join('');
   const body = `
 <h1 class="sr-only">About Joe Cavadini</h1>
 <section class="about wrap">
@@ -388,10 +387,6 @@ function aboutPage() {
       <ol class="process__list">${home.process.map((p) => `<li class="process__step" data-step><h3 class="process__name">${esc(p.name)}</h3><p class="process__text">${esc(p.text)}</p></li>`).join('')}</ol>
     </section>
   </div>
-</section>
-<section class="clients" aria-labelledby="svc-h">
-  <div class="wrap"><h2 id="svc-h" class="label">Services</h2></div>
-  <div class="marquee marquee--big" data-marquee><div class="marquee__track">${svc}${svc.replace(/<span>/g, '<span aria-hidden="true">')}</div></div>
 </section>`;
   write('about/index.html', page({ pre, title: 'About — Joe Cavadini', desc: about.lead, active: 'about', body, cls: 'p-about', og: url(about.portrait.src) }));
 }
