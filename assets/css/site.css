@@ -1147,3 +1147,15 @@ body { letter-spacing: 0; }
   .stack__link, .stack__img { will-change: auto; }
   .stack__img { transition: none; }
 }
+
+/* About: Process lives in the right column; portrait stays pinned on the left */
+.about__process { margin-top: clamp(64px, 12vh, 140px); display: grid; gap: 10px; }
+.about__process .process__meter { margin: 14px 0 8px; }
+.about__process .process__list { margin-top: 8px; }
+.about__process .process__step { padding: clamp(24px, 4.5vh, 44px) 0; border-top: 1px solid var(--line); }
+.p-about .about__portrait img { height: 100%; }
+@media (max-width: 760px) {
+  .about__process .process__list { padding-bottom: 0; }
+  .about__process .process__step { position: static; min-height: 0; }
+  .about__process .process__step:last-child { border-bottom: 1px solid var(--line); }
+}

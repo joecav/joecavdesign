@@ -200,13 +200,6 @@ function homePage() {
   <figure class="bleed__fig">${img(home.photo.src, home.photo.alt, { sizes: '100vw', cls: 'bleed__img' })}</figure>
 </section>
 
-<section class="process wrap" aria-labelledby="process-h" data-process>
-  <div class="duo">
-    <div class="duo__side"><h2 id="process-h" class="h-section">Process</h2><p class="muted">From the first question to the final file.</p><div class="process__meter" aria-hidden="true"><span data-process-bar></span></div></div>
-    <ol class="duo__list process__list">${process}</ol>
-  </div>
-</section>
-
 <section class="clients clients--logos" aria-labelledby="clients-h">
   <div class="wrap"><h2 id="clients-h" class="h-section">Selected Clients</h2></div>
   <div class="logo-rows" role="img" aria-label="${esc(home.clients.join(', '))}">
@@ -380,12 +373,18 @@ function aboutPage() {
   const body = `
 <h1 class="sr-only">About Joe Cavadini</h1>
 <section class="about wrap">
-  <figure class="about__portrait reveal-media">${img(about.portrait.src, about.portrait.alt, { sizes: '(min-width: 900px) 40vw, 100vw', cls: 'parallax', eager: true })}</figure>
+  <figure class="about__portrait reveal-media">${img(about.portrait.src, about.portrait.alt, { sizes: '(min-width: 900px) 40vw, 100vw', eager: true })}</figure>
   <div class="about__copy">
     <p class="about__lead" data-reveal>${esc(about.lead)}</p>
     ${about.story.map((s) => `<p data-reveal>${esc(s)}</p>`).join('')}
     <dl class="facts">${about.facts.map((f) => `<div data-reveal><dt class="label">${esc(f.k)}</dt><dd>${br(f.v)}</dd></div>`).join('')}</dl>
     <div class="about__links"><a class="btn btn--solid" href="${pre}resume/">Resume</a>${socials()}</div>
+    <section class="about__process" aria-labelledby="process-h" data-process>
+      <h2 id="process-h" class="h-section">Process</h2>
+      <p class="muted" data-reveal>From the first question to the final file.</p>
+      <div class="process__meter" aria-hidden="true"><span data-process-bar></span></div>
+      <ol class="process__list">${home.process.map((p) => `<li class="process__step" data-step><h3 class="process__name">${esc(p.name)}</h3><p class="process__text">${esc(p.text)}</p></li>`).join('')}</ol>
+    </section>
   </div>
 </section>
 <section class="clients" aria-labelledby="svc-h">
