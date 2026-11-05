@@ -373,12 +373,14 @@ function aboutPage() {
   const body = `
 <h1 class="sr-only">About Joe Cavadini</h1>
 <section class="about wrap">
-  <figure class="about__portrait reveal-media">${img(about.portrait.src, about.portrait.alt, { sizes: '(min-width: 900px) 40vw, 100vw', eager: true })}</figure>
+  <div class="about__side">
+    <figure class="about__portrait reveal-media">${img(about.portrait.src, about.portrait.alt, { sizes: '(min-width: 900px) 40vw, 100vw', eager: true })}</figure>
+    <div class="about__links"><a class="btn btn--solid" href="${pre}resume/">Resume</a>${socials()}</div>
+  </div>
   <div class="about__copy">
     <p class="about__lead" data-reveal>${esc(about.lead)}</p>
     ${about.story.map((s) => `<p data-reveal>${esc(s)}</p>`).join('')}
     <dl class="facts">${about.facts.map((f) => `<div data-reveal><dt class="label">${esc(f.k)}</dt><dd>${br(f.v)}</dd></div>`).join('')}</dl>
-    <div class="about__links"><a class="btn btn--solid" href="${pre}resume/">Resume</a>${socials()}</div>
     <section class="about__process" aria-labelledby="process-h" data-process>
       <h2 id="process-h" class="h-section">Process</h2>
       <p class="muted" data-reveal>From the first question to the final file.</p>

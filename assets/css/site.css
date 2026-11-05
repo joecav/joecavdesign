@@ -1159,3 +1159,10 @@ body { letter-spacing: 0; }
   .about__process .process__step { position: static; min-height: 0; }
   .about__process .process__step:last-child { border-bottom: 1px solid var(--line); }
 }
+
+/* About: Resume + socials sit under the portrait; both stay pinned together */
+.about__side { position: sticky; top: calc(var(--hdr-h) + 24px); align-self: start; display: grid; gap: 20px; }
+.about__side .about__portrait { position: relative; top: 0; }
+.about__side .about__links { margin-top: 0; }
+@media (min-width: 861px) { .about__side .about__portrait { max-height: calc(100svh - var(--hdr-h) - 48px - 64px); } }
+@media (max-width: 860px) { .about__side { position: relative; top: 0; } }
