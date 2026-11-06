@@ -1224,3 +1224,5 @@ body { letter-spacing: 0; }
 .stack::after { content: ""; display: block; height: 22svh; }
 @media (max-width: 760px) { .stack::after { height: 16svh; } }
 @media (prefers-reduced-motion: reduce) { .stack::after { height: 0; } }
+/* Stacked cards: no square backing behind each rounded card, so the card underneath shows through its corners instead of light slivers */
+.stack__item { background: transparent; }
