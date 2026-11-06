@@ -109,6 +109,7 @@ export const projects = [
     col: 'narrow',
     layout: [
       ['full', 'assets/img/work/meta-3x/lockup.jpg'],
+      ['loop', { src: 'assets/video/arccos-meta-island.mp4', poster: 'assets/video/arccos-meta-island.jpg', title: 'Asking Meta AI glasses for the yardage, answered in the Arccos Live Activity' }, '1280/800'],
       ['full', 'assets/img/work/meta-3x/web-v2.jpg'],
       ['full', 'assets/img/work/meta-3x/onboarding.jpg'],
       ['grid3', ['assets/img/work/meta-3x/app-1.jpg', 'assets/img/work/meta-3x/app-2.jpg', 'assets/img/work/meta-3x/app-3.jpg'], '279/302'],
