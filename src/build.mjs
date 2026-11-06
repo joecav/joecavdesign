@@ -214,6 +214,7 @@ function homePage() {
   <div class="logo-rows" role="img" aria-label="${esc(home.clients.join(', '))}">
     ${LOGO_ROWS.map((row, r) => `<div class="logo-row logo-row--${r}"><div class="logo-track">${Array(4).fill(row.map(([f, ar, k]) => `<img class="logo" src="${pre}assets/img/clients/logos/${f}.png" alt="" decoding="async" style="--ar:${ar};--s:${(k * Math.min(1.55, 1.5 * Math.pow(ar, -0.42))).toFixed(3)}">`).join('')).join('')}</div></div>`).join('\n    ')}
   </div>
+  <div class="wrap clients__cta"><a class="btn btn--solid" href="${pre}work/">View all work</a></div>
 </section>`;
   const ld = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Person', name: 'Joe Cavadini', jobTitle: 'Art Director and Designer', url: site.url, email: 'mailto:' + site.email, address: { '@type': 'PostalAddress', addressLocality: 'Brooklyn', addressRegion: 'NY', addressCountry: 'US' }, sameAs: [site.linkedin, site.instagram] })}</script>`;
   write('index.html', page({ pre, title: 'Joe Cavadini — Art Director + Designer', desc: 'Brooklyn-based art director and designer helping brands tell good stories, built to perform.', active: 'home', body, cls: 'p-home' }).replace('</head>', ld + '\n</head>'));
