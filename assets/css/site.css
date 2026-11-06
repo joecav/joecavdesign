@@ -1166,3 +1166,21 @@ body { letter-spacing: 0; }
 .about__side .about__links { margin-top: 0; }
 @media (min-width: 861px) { .about__side .about__portrait { max-height: calc(100svh - var(--hdr-h) - 48px - 64px); } }
 @media (max-width: 860px) { .about__side { position: relative; top: 0; } }
+
+/* ===== Design pass (draft, Stageshow craft rules) =====
+   1. Quiet is not faint: resting labels step up a tone so they read at a glance.
+   2. Chips stay legible on bright covers: the Work page's corner shade, on the homepage stack too.
+   3. Hero actions in proportion to the headline on desktop.
+   4. Nothing ghosted at rest: hover-only icons are fully hidden until hover.
+   5. One figure language: a single radius and shadow for every framed image. */
+:root:not([data-theme="dark"]) { --dim: #8a8e97; }
+.js .process__step { opacity: .5; }
+.stack__media::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(120% 90% at 0% 0%, rgba(0,0,0,.42) 0%, rgba(0,0,0,.12) 28%, rgba(0,0,0,0) 48%); }
+@media (min-width: 761px) {
+  .hero__ctas { gap: 12px; }
+  .hero__ctas .btn { height: 52px; padding: 0 26px; font-size: 15px; }
+  .focus__row .focus__ico { visibility: hidden; }
+  .focus__row:hover .focus__ico { visibility: visible; }
+}
+.stack__link, .card__media, .g, .next__media, .about__portrait, .proj__hero .reel__frame, .fall__media { border-radius: 10px; }
