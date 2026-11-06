@@ -300,8 +300,9 @@
     const media = $('.stack__media', it), copy = $('.stack__copy', it);
     gsap.from($$('.pill, .stack__title, .stack__meta', it), { yPercent: 40, opacity: 0, duration: 1.1, stagger: .07, ease: E, scrollTrigger: { trigger: it, start: 'top 55%' } });
     const nxt = items[i + 1];
-    // Desktop only: on phones a scrubbed scale on a sticky card stutters (touch scroll runs off the main thread).
-    if (nxt && !phone) gsap.to($('.stack__link', it), { scale: 0.88, ease: 'none', scrollTrigger: { trigger: nxt, start: 'top bottom', end: 'top top', scrub: true } });
+    // The card underneath eases back as the next one slides over it. Phones get a gentler scale with a
+    // short smoothing on the scrub, so it follows the finger without stuttering.
+    if (nxt) gsap.to($('.stack__link', it), { scale: phone ? 0.93 : 0.88, ease: 'none', force3D: true, scrollTrigger: { trigger: nxt, start: 'top bottom', end: 'top top', scrub: phone ? 0.35 : true } });
 
   });
 

@@ -1144,7 +1144,7 @@ body { letter-spacing: 0; }
 
 /* Phones: lighter Selected Work cards */
 @media (max-width: 760px) {
-  .stack__link, .stack__img { will-change: auto; }
+  .stack__link { will-change: transform; } .stack__img { will-change: auto; }
   .stack__img { transition: none; }
 }
 
