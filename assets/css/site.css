@@ -1192,3 +1192,15 @@ body { letter-spacing: 0; }
   .about__phead::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 40px; pointer-events: none; background: linear-gradient(var(--bg), transparent); }
   .about__phead .h-section { line-height: .9; }
 }
+/* About, phones: the Process heading and bar pin just under the nav while the steps scroll beneath */
+@media (max-width: 860px) {
+  .about__phead { position: sticky; top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px)); z-index: 2; background: var(--bg); padding: 14px 0 10px; gap: 6px; }
+  .about__phead::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 28px; pointer-events: none; background: linear-gradient(var(--bg), transparent); }
+  .about__phead .h-section { font-size: clamp(34px, 9vw, 44px); line-height: 1; }
+  .about__phead .process__meter { margin: 6px 0 0; max-width: none; }
+}
+.about__process .process__list { position: relative; z-index: 0; isolation: isolate; }
+.about__process .about__phead { z-index: 5; }
+/* Cover the strip between the nav and the pinned heading, so steps never show above it */
+.about__phead::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 40px; background: var(--bg); pointer-events: none; }
+@media (max-width: 860px) { .about__phead::before { height: 24px; } }

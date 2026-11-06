@@ -362,6 +362,18 @@
   setPh(); addEventListener('resize', setPh);
   if (bar) gsap.to(bar, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.process__list', start: 'top 60%', end: 'bottom 60%', scrub: true } });
 
+  // About, desktop: once the photo starts scrolling away, the pinned Process heading goes with it.
+  const aSide = $('.about__side'), aHead = $('.about__phead');
+  if (aSide && aHead) {
+    const pin = () => {
+      if (innerWidth < 861) { aHead.style.transform = ''; return; }
+      const stuck = parseFloat(getComputedStyle(aSide).top) || 0;
+      const lift = Math.max(0, stuck - aSide.getBoundingClientRect().top);
+      aHead.style.transform = lift ? `translateY(${-lift}px)` : '';
+    };
+    if (lenis) lenis.on('scroll', pin); addEventListener('scroll', pin, { passive: true }); addEventListener('resize', pin); pin();
+  }
+
   // Stats count up.
   $$('[data-count]').forEach((el) => {
     const raw = el.dataset.count, m = raw.match(/^([^\d]*)([\d,]+)(.*)$/);
