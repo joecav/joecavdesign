@@ -391,9 +391,11 @@ function aboutPage() {
     ${about.story.map((s) => `<p data-reveal>${esc(s)}</p>`).join('')}
     <dl class="facts">${about.facts.map((f) => `<div data-reveal><dt class="label">${esc(f.k)}</dt><dd>${br(f.v)}</dd></div>`).join('')}</dl>
     <section class="about__process" aria-labelledby="process-h" data-process>
-      <h2 id="process-h" class="h-section">Process</h2>
-      <p class="muted" data-reveal>From the first question to the final file.</p>
-      <div class="process__meter" aria-hidden="true"><span data-process-bar></span></div>
+      <div class="about__phead">
+        <h2 id="process-h" class="h-section">Process</h2>
+        <p class="muted">From the first question to the final file.</p>
+        <div class="process__meter" aria-hidden="true"><span data-process-bar></span></div>
+      </div>
       <ol class="process__list">${home.process.map((p) => `<li class="process__step" data-step><h3 class="process__name">${esc(p.name)}</h3><p class="process__text">${esc(p.text)}</p></li>`).join('')}</ol>
     </section>
   </div>

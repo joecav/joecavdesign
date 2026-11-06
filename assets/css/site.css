@@ -1184,3 +1184,11 @@ body { letter-spacing: 0; }
   .focus__row:hover .focus__ico { visibility: visible; }
 }
 .stack__link, .card__media, .g, .next__media, .about__portrait, .proj__hero .reel__frame, .fall__media { border-radius: 10px; }
+
+/* About, desktop: the Process heading and its progress bar pin level with the top of the photo; the steps scroll up beneath it */
+.about__phead { display: grid; gap: 10px; }
+@media (min-width: 861px) {
+  .about__phead { position: sticky; top: calc(var(--hdr-h) + 24px); z-index: 2; background: var(--bg); padding-bottom: 6px; }
+  .about__phead::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 40px; pointer-events: none; background: linear-gradient(var(--bg), transparent); }
+  .about__phead .h-section { line-height: .9; }
+}
