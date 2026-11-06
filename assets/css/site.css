@@ -1220,3 +1220,7 @@ body { letter-spacing: 0; }
   .p-home .ftr { margin-top: 72px; }
 }
 @media (min-width: 761px) { .clients__cta .btn { height: 52px; padding: 0 26px; font-size: 15px; } }
+/* Selected Work: room under the last card equal to the gap between cards, so the last card fully covers the one before it */
+.stack::after { content: ""; display: block; height: 22svh; }
+@media (max-width: 760px) { .stack::after { height: 16svh; } }
+@media (prefers-reduced-motion: reduce) { .stack::after { height: 0; } }
