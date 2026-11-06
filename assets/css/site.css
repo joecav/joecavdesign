@@ -1204,3 +1204,5 @@ body { letter-spacing: 0; }
 /* Cover the strip between the nav and the pinned heading, so steps never show above it */
 .about__phead::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 40px; background: var(--bg); pointer-events: none; }
 @media (max-width: 860px) { .about__phead::before { height: 24px; } }
+/* iOS Safari: keep the fixed header on its own layer so it can't drift mid-screen while the toolbar collapses during momentum scroll */
+.hdr { top: 0; -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); will-change: transform; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
