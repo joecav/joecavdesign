@@ -1213,7 +1213,7 @@ body { letter-spacing: 0; }
 /* Homepage close: a View all work action under the client logos, and tighter section spacing on phones */
 .clients__cta { display: flex; justify-content: center; margin-top: clamp(40px, 7vh, 72px); }
 @media (max-width: 760px) {
-  .p-home .clients { padding-top: 72px; }
+  .p-home .clients { padding-top: 112px; }
   .p-home .clients--logos .wrap:first-child { margin-bottom: 24px; }
   .p-home .clients__cta { margin-top: 32px; }
   .p-home .clients__cta .btn { width: 100%; justify-content: center; height: 52px; }
