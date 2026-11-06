@@ -365,11 +365,17 @@
   // About, desktop: once the photo starts scrolling away, the pinned Process heading goes with it.
   const aSide = $('.about__side'), aHead = $('.about__phead');
   if (aSide && aHead) {
+    // ...and once the last step reaches it, the heading lets go and leaves with that step, so it never sits over empty space.
+    const aSteps = $$('.about__process .process__step'), aLast = aSteps[aSteps.length - 1];
     const pin = () => {
-      if (innerWidth < 861) { aHead.style.transform = ''; return; }
-      const stuck = parseFloat(getComputedStyle(aSide).top) || 0;
-      const lift = Math.max(0, stuck - aSide.getBoundingClientRect().top);
-      aHead.style.transform = lift ? `translateY(${-lift}px)` : '';
+      aHead.style.transform = '';
+      const hb = aHead.getBoundingClientRect().bottom;
+      let lift = aLast ? Math.max(0, hb - aLast.getBoundingClientRect().top) : 0;
+      if (innerWidth >= 861) {
+        const stuck = parseFloat(getComputedStyle(aSide).top) || 0;
+        lift = Math.max(lift, stuck - aSide.getBoundingClientRect().top);
+      }
+      if (lift > 0) aHead.style.transform = `translateY(${-lift}px)`;
     };
     if (lenis) lenis.on('scroll', pin); addEventListener('scroll', pin, { passive: true }); addEventListener('resize', pin); pin();
   }
